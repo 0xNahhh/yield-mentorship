@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
 
-import "forge-std/console.sol";
-
 contract SimpleRegistry {
     mapping(string => address) public registry;
 
@@ -10,7 +8,6 @@ contract SimpleRegistry {
     event Released(address indexed owner, string name);
 
     function register(string calldata name) external {
-        console.log("registry name address: ", registry[name]);
         require(registry[name] == address(0), "Name already registered");
         registry[name] = msg.sender;
 
